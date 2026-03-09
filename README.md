@@ -28,3 +28,34 @@ The model was trained in two distinct phases to test wave-field superposition an
 git clone [https://github.com/anttiluode/MoireFormer.git](https://github.com/anttiluode/MoireFormer.git)
 cd MoireFormer
 pip install torch transformers datasets (or install via requirements.txt)
+
+2. Download the Weights
+The pre-trained PyTorch weights (moire_phase2_weights_final.pt) are hosted on Hugging Face:
+👉 Download Weights Here:
+
+[moire_phase2_weights_final.pt](https://huggingface.co/Aluode/MoireFormer/blob/main/moire_phase2_weights_final.pt)
+
+Place the .pt file in your root repository folder.
+
+# 3. Run Inference
+
+You can interact with the Moiré field directly using the chat script.
+
+Bash
+python moire_chat.py --weights moire_phase2_weights_final.pt --size large
+Chat Options:
+
+Chat Mode (Default): Formats inputs as User: and Bot:
+
+Completion Mode: Use --mode complete to have the model organically continue your text.
+
+# Repository Structure
+
+moire_attention_gpt2.py / moire_conv_trainer.py: The core Moiré Attention block and Phase 1 mixed-dataset trainer.
+
+moire_conv_trainer_v3.py: The advanced Phase 2 trainer with Guanaco/TinyStories/FineWeb dataset loaders.
+
+moire_chat.py: The interactive CLI interface for querying the trained wave-field.
+
+License
+MIT License
