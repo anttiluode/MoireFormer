@@ -53,6 +53,9 @@ You can interact with the Moiré field directly using the chat script.
 ```bash
 python moire_chat.py --weights moire_phase2_weights_final.pt --size large
 ```
+
+The chat wants : moire_phase2_weights_final.pt to be in same folder. 
+
 Chat Options:
 
 Chat Mode (Default): Formats inputs as User: and Bot:
