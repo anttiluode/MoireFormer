@@ -1,5 +1,13 @@
 # MoireFormer: A Wave-Interference Transformer Bolt-On
 
+Test it now at: 
+
+https://huggingface.co/spaces/Aluode/MoireFormer-Chat 
+
+Note the model is small and not very coherent. It mainly serves to show that it works. 
+
+--
+
 MoireFormer is a novel neural network architecture that replaces standard scalar dot-product attention with **Moiré phase-interference wave mechanics**. It acts as a "bolt-on" replacement for standard Transformer blocks, proving that artificial intelligence can be trained using continuous, biological wave-geometry rather than discrete scalar weights.
 
 This repository contains the training scripts, inference code, and architecture definitions for the MoireFormer proof-of-concept.
