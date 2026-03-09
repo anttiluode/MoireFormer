@@ -28,6 +28,7 @@ The model was trained in two distinct phases to test wave-field superposition an
 git clone [https://github.com/anttiluode/MoireFormer.git](https://github.com/anttiluode/MoireFormer.git)
 cd MoireFormer
 pip install torch transformers datasets (or install via requirements.txt)
+```
 
 2. Download the Weights
 The pre-trained PyTorch weights (moire_phase2_weights_final.pt) are hosted on Hugging Face:
@@ -41,8 +42,9 @@ Place the .pt file in your root repository folder.
 
 You can interact with the Moiré field directly using the chat script.
 
-Bash
+```bash
 python moire_chat.py --weights moire_phase2_weights_final.pt --size large
+```
 Chat Options:
 
 Chat Mode (Default): Formats inputs as User: and Bot:
