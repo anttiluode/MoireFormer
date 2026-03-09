@@ -27,4 +27,4 @@ The model was trained in two distinct phases to test wave-field superposition an
 ```bash
 git clone [https://github.com/anttiluode/MoireFormer.git](https://github.com/anttiluode/MoireFormer.git)
 cd MoireFormer
-pip install torch transformers datasets
+pip install torch transformers datasets (or install via requirements.txt)
