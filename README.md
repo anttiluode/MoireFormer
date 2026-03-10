@@ -1,5 +1,9 @@
 # MoireFormer: A Wave-Interference Transformer Bolt-On
 
+EDIT: Added larger trainer to folder (137 million parameter trainer and chat engine)
+
+Weights up to epoch 6 for it are at kaggle \ MoireFormer: https://www.kaggle.com/datasets/anttiluode/moireformer
+
 Test it now at: 
 
 https://huggingface.co/spaces/Aluode/MoireFormer-Chat 
