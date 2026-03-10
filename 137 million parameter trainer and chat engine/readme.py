@@ -38,4 +38,5 @@ To fire up the trainer using the new curriculum and mixed precision:
 #### 2. Chatting with the Model
 Place your trained checkpoint in this folder and run the upgraded chat engine:
 
-    python moire_chat3.py --checkpoint moire_phase2_ep1.pt --size xlarge --temperature 0.7
+
+    python moire_chat3.py --checkpoint yourweights.pt --size xlarge --temperature 0.7
