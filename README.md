@@ -16,6 +16,11 @@ At ~138M parameters, this is a **proof-of-substrate** model. It proves that the 
 * **Structure:** 12 Layers, 12 Heads, 768 Embedding Dimension
 * **Theory & Background:** Read the origin of the architecture at the [Geometric-Neuron Repository](https://github.com/anttiluode/Geometric-Neuron)
 
+## The Architecture
+Standard Transformers calculate attention using `Q · K^T` (dot products). MoireFormer splits token embeddings into amplitude and phase (`q_amp`, `q_phase`) and computes attention via geometric wave resonance: `q_real * k_real + q_imag * k_imag`. 
+
+Additionally, it features a biologically inspired **Theta Phase Gate**, organizing memory across temporal distances using multiplexed oscillatory rhythms (Theta/Gamma coupling).
+
 ---
 
 ## How to Run Locally
