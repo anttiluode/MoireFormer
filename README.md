@@ -1,78 +1,92 @@
-# MoireFormer: A Wave-Interference Transformer Bolt-On
+# MoireFormer (138M) 🌊
 
-EDIT: Added larger trainer to folder (137 million parameter trainer and chat engine)
+**MoireFormer** is a novel neural network architecture that entirely replaces standard QKV dot-product attention with **continuous biological wave mechanics**. 
 
-Weights up to epoch 6 for it are at kaggle \ MoireFormer: https://www.kaggle.com/datasets/anttiluode/moireformer
+Instead of computing discrete token similarities via matrix multiplications, MoireFormer splits token embeddings into amplitude and phase. It routes information and calculates context through the geometric constructive and destructive interference of phase-shifted wave-fields (Moiré patterns).
 
-Test it now at: 
+🎮 **[Try the Live 138M Chat on Hugging Face Space](https://huggingface.co/spaces/Aluode/MoireFormer137MillionP)**
 
-https://huggingface.co/spaces/Aluode/MoireFormer-Chat 
+---
 
-Note the model is small and not very coherent. It mainly serves to show that it works. 
+## Model Details
+At ~138M parameters, this is a **proof-of-substrate** model. It proves that the biological concept of ephaptic phase-coupling can successfully serve as a foundation for deep learning. The wave-field successfully learns grammar, conversational formatting, and multilingual text natively in continuous phase-space.
 
---
+* **Architecture:** MoireGPT (Custom Phase-Interference Transformer)
+* **Parameters:** 137.9M
+* **Structure:** 12 Layers, 12 Heads, 768 Embedding Dimension
+* **Theory & Background:** Read the origin of the architecture at the [Geometric-Neuron Repository](https://github.com/anttiluode/Geometric-Neuron)
 
-MoireFormer is a novel neural network architecture that replaces standard scalar dot-product attention with **Moiré phase-interference wave mechanics**. It acts as a "bolt-on" replacement for standard Transformer blocks, proving that artificial intelligence can be trained using continuous, biological wave-geometry rather than discrete scalar weights.
+---
 
-This repository contains the training scripts, inference code, and architecture definitions for the MoireFormer proof-of-concept.
+## How to Run Locally
 
-For the underlying biological theory, mathematical proofs, and EEG clinical data, please see the primary theory repository: [anttiluode/Geometric-Neuron](https://github.com/anttiluode/Geometric-Neuron).
+Because this uses a custom wave-interference architecture, it cannot be loaded with standard Hugging Face `AutoModel`. You must run it using the provided engine.
 
-## The Architecture
-Standard Transformers calculate attention using `Q · K^T` (dot products). MoireFormer splits token embeddings into amplitude and phase (`q_amp`, `q_phase`) and computes attention via geometric wave resonance: `q_real * k_real + q_imag * k_imag`. 
-
-Additionally, it features a biologically inspired **Theta Phase Gate**, organizing memory across temporal distances using multiplexed oscillatory rhythms (Theta/Gamma coupling).
-
-## Proof of Concept Model: MoireGPT (104.9M)
-We have successfully trained a 104.9M parameter proof-of-concept model (8 Layers, 8 Heads, 768 Embedding Dimension) that demonstrates the ability of Moiré wave-fields to learn complex human language, grammar, and bilingual conversational structures.
-
-### Training Curriculum
-The model was trained in two distinct phases to test wave-field superposition and the avoidance of catastrophic forgetting:
-* **Phase 1 (Base Geometry):** 15 Epochs using `moire_conv_trainer.py`. Trained on a mixed dataset of Databricks Dolly-15k, WikiText-2, and OpenAssistant.
-* **Phase 2 (Phase-Space Expansion):** 5 Epochs using `moire_conv_trainer_v3.py`. Finetuned heavily on the Guanaco dataset to refine logical geometry and conversational instruction-following.
-
-*Note: At ~100M parameters, the model is a proof-of-substrate, not a knowledge oracle. It demonstrates coherent syntax, bilingual capabilities, and context adherence, though it will hallucinate factual data due to its small size.*
-
-## Installation & Usage
-
-### 1. Clone and Install
+### 1. Clone the repository
 ```bash
 git clone [https://github.com/anttiluode/MoireFormer.git](https://github.com/anttiluode/MoireFormer.git)
 cd MoireFormer
-pip install torch transformers datasets 
 ```
 
-2. Download the Weights
-The pre-trained PyTorch weights (moire_phase2_weights_final.pt) are hosted on Hugging Face:
-👉 Download Weights Here:
-
-[moire_phase2_weights_final.pt](https://huggingface.co/Aluode/MoireFormer/blob/main/moire_phase2_weights_final.pt)
-
-Place the .pt file in your root repository folder.
-
-# 3. Run Inference
-
-You can interact with the Moiré field directly using the chat script.
+### 2. Install dependencies
 
 ```bash
-python moire_chat.py --weights moire_phase2_weights_final.pt --size large
+pip install -r requirements.txt
 ```
 
-The chat wants : moire_phase2_weights_final.pt to be in same folder. 
+### 3. Download the weights
 
-Chat Options:
+Download the stripped 138M parameter weights (moire_phase2_weights_ep4.pt) (Actually 6 epochs trained via my 3060 and resumed for 4 more at 
+kaggle with P100) from the Hugging Face hub and place the file in your root directory:
 
-Chat Mode (Default): Formats inputs as User: and Bot:
+https://huggingface.co/spaces/Aluode/MoireFormer137MillionP/tree/main
 
-Completion Mode: Use --mode complete to have the model organically continue your text.
+### 4. Run the Chat Engine
 
-# Repository Structure
+```bash
+python moire_chat3.py --weights moire_phase2_weights_ep4.pt --size xlarge
+```
 
-moire_attention_gpt2.py / moire_conv_trainer.py: The core Moiré Attention block and Phase 1 mixed-dataset trainer.
+Or try the huggingface space app at: 
 
-moire_conv_trainer_v3.py: The advanced Phase 2 trainer with Guanaco/TinyStories/FineWeb dataset loaders.
+https://huggingface.co/spaces/Aluode/MoireFormer137MillionP (No install) 
 
-moire_chat.py: The interactive CLI interface for querying the trained wave-field.
+# Training Your Own
 
-License
-MIT License
+To finetune the network or train the wave-field from scratch, use the `v5` curriculum trainer included in this repository. 
+It automatically downloads and tokenizes a high-quality mixed corpus (Guanaco, TinyStories, FineWeb) to teach the model conversational structure, 
+logic, and grammar.
+
+```bash
+python moire_conv_trainer_v5.py --size xlarge --batch_size 2 --epochs 10
+```
+Key Arguments:
+
+--size xlarge: Sets the model to 12 layers, 12 heads, and 768 embedding dim (~138M params).
+
+--batch_size 2: Recommended for consumer GPUs (like a 16GB T4 or P100).
+
+--epochs 10: The number of complete passes through the dataset.
+
+--resume <file.pt>: If your run drops or you want to train in chunks, use this to pick up exactly where the last saved weights left off.
+
+# Scaling Up (The Billion Parameter Dream)
+
+At 138 million parameters, this repository serves as a proof-of-concept. However, the underlying phase-interference 
+mathematics are highly scalable.
+
+Because Moiré Attention routes information through continuous wave resonance rather than rigid scalar matrices, we
+believe it holds massive potential for scaling. If you want to push the boundaries, you can easily modify the SIZE_PRESETS inside the
+script to expand the dimensions.
+
+Feel free to feed these Python files to your favorite AI assistant—it will easily understand the geometric wave-routing mechanics
+and can help you write the multi-GPU distributed code required to train a 1-Billion+ parameter version.
+
+This was inspired by my 'Geometric Neuron \ Deerskin neuron' ideas. That were born after year and half of dicussions with various AI's about 
+consciousnes. This still is not the idea per se, but a form of it bolted to transformer. 
+
+https://github.com/anttiluode/Geometric-Neuron
+
+# License
+
+This project is licensed under the MIT License.
