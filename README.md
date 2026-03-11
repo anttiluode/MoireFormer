@@ -82,8 +82,11 @@ script to expand the dimensions.
 Feel free to feed these Python files to your favorite AI assistant—it will easily understand the geometric wave-routing mechanics
 and can help you write the multi-GPU distributed code required to train a 1-Billion+ parameter version.
 
-This was inspired by my 'Geometric Neuron \ Deerskin neuron' ideas. That were born after year and half of dicussions with various AI's about 
-consciousnes. This still is not the idea per se, but a form of it bolted to transformer. 
+This architecture was inspired by my Geometric Neuron / Deerskin Neuron concepts. Those ideas were born after a year and a half 
+of discussions with various AIs about the fundamental mechanics of consciousness. While this model isn't the pure expression of
+that biological idea, it is a functional form of it bolted onto a Transformer chassis to prove the math works.
+
+Read the core theories here: 
 
 https://github.com/anttiluode/Geometric-Neuron
 
